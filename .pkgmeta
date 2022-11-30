@@ -1,0 +1,15 @@
+package-as: MovableRaidFrames
+enable-nolib-creation: no
+
+move-folders:
+    MovableRaidFrames/MovableRaidFrames: MovableRaidFrames
+
+ignore: # Files and directories beginning with a dot (such as .git) are automatically ignored, as is the pgkmeta file itself.
+    - build.bat
+    - build.py
+
+manual-changelog:
+    filename: CHANGELOG.md
+    markup-type: markdown
+
+license-output: LICENSE.txt
