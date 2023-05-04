@@ -1,3 +1,6 @@
+# v1.0.3
+* Version bump for 10.1
+
 # v1.0.2
 * Version bump for 10.0.7
 
