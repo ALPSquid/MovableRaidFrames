@@ -1,3 +1,6 @@
+# v1.0.5
+* Version bump for 10.2
+
 # v1.0.4
 * Version bump for 10.1.5
 
