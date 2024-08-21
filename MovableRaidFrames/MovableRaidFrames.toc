@@ -1,8 +1,8 @@
-## Interface: 100200
+## Interface: 110002
 ## Title: Movable Raid Frames
 ## Author: Aerthok
 ## Notes: Adds a drag handle to the default raid frames and raid-style party frames.
-## Version: 1.0.5
+## Version: 1.0.6
 ## Dependencies: Blizzard_CompactRaidFrames
 
 MovableRaidFrames.lua
