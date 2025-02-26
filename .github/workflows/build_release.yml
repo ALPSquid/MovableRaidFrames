@@ -1,0 +1,35 @@
+name: Create Release Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Extract version number
+      run: |
+        version_num=$(grep "## Version:" MovableRaidFrames/MovableRaidFrames.toc | awk '{print $3}')
+        echo "version_num=$version_num" >> $GITHUB_ENV
+
+    - name: Create release folder and zip archive
+      run: |
+        mkdir -p Builds/${{ env.version_num }}
+        zip -r Builds/${{ env.version_num }}/MovableRaidFrames_${{ env.version_num }}.zip MovableRaidFrames -x "*.git*"
+
+    - name: Create release
+      uses: ncipollo/release-action@v1
+      with:
+        allowUpdates: true
+        tag: v${{ env.version_num }}
+        prerelease: ${{ contains(env.version_num, 'alpha') ||  contains(env.version_num, 'beta') }}
+        artifacts: "Builds/${{ env.version_num }}/MovableRaidFrames_${{ env.version_num }}.zip"
+        bodyFile: "CHANGELOG.md"
